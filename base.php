@@ -1,11 +1,12 @@
 <?php
-$servername = "autorack.proxy.rlwy.net:29769"; // Cambia esto si tu servidor es diferente
+$servername = "autorack.proxy.rlwy.net"; // Servidor de la base de datos
+$port = 29769; // Puerto de la base de datos
 $username = "root";  // Reemplaza con tu usuario de MySQL
 $password = "EubnNEWRjXeUBJyPdUpSjHJBcDUmOAck"; // Reemplaza con tu contraseña de MySQL
 $dbname = "farmacia"; // El nombre de tu base de datos
 
 // Crear la conexión
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $username, $password, $dbname, $port);
 
 // Verificar la conexión
 if ($conn->connect_error) {
@@ -35,5 +36,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 resultados";
 }
+
+// Cerrar la conexión
 $conn->close();
 ?>
